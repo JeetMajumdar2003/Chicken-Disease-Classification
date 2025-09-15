@@ -1,1 +1,8 @@
-key: value
+AUGMENTATION: True           # whether to perform data augmentation or not
+IMAGE_SIZE: [224, 224, 3]    # as per VGG16 model(from keras application)
+BATCH_SIZE: 16               # number of images to be passed in one iteration
+INCLUDE_TOP: False           # whether to include top layer or not
+EPOCHS: 5                    # number of training epochs
+CLASSES: 2                   # number of output classes(coccidiosis or healthy)
+WEIGHTS: imagenet            # imagenet or None
+LEARNING_RATE: 0.01          # for Adam optimizer
