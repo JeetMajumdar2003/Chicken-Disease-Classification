@@ -1,0 +1,190 @@
+:root {
+    --bg: #f6f8fb;
+    --card: #ffffff;
+    --muted: #6c757d;
+    --accent: #2563eb;
+    /* blue-600 */
+    --accent-600: #1e40af;
+    --border: #e6e9ef;
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: var(--bg);
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+}
+
+.heading{
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    padding: 0.5rem 0;
+    line-height: 1.2;
+    color: #111827;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card)
+}
+
+.preview {
+    width: 100%;
+    max-width: 100%;
+    height: 320px;
+    background: linear-gradient(180deg, #f8fafc, #eef2f8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px dashed var(--border)
+}
+
+.preview video,
+.preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block
+}
+
+.preview img {
+    display: none
+}
+
+/* keep the canvas accessible but hidden for processing */
+#canvas {
+    display: none !important
+}
+
+.btn {
+    border-radius: 5px
+}
+
+.res-part,
+.res-part2 {
+    border: 1px dashed var(--border);
+    background: linear-gradient(180deg, #ffffff, #fbfdff);
+    min-height: 260px;
+    border-radius: 8px;
+    padding: 12px
+}
+
+.jsonRes {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+    font-size: 0.95rem
+}
+
+.loader {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 8px solid rgba(0, 0, 0, 0.06);
+    border-top-color: var(--accent);
+    animation: spin 1s linear infinite;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999
+}
+
+#loading {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 9998
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg)
+    }
+}
+
+/* Responsive tweaks */
+@media (max-width:991px) {
+    .preview {
+        height: 260px
+    }
+}
+
+/* Accessibility focus */
+.btn:focus {
+    outline: 3px solid rgba(37, 99, 235, 0.15);
+    outline-offset: 2px
+}
+
+.small-muted {
+    color: var(--muted);
+    font-size: 0.85rem
+}
+
+.text-end {
+    text-align: right
+}
+
+.shadow-sm {
+    box-shadow: 0 6px 18px rgba(11, 15, 28, 0.06)
+}
+
+/* Header */
+.app-header {
+    background: transparent
+}
+
+/* Dropzone */
+.dropzone {
+    position: relative;
+    background: #fff;
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    padding: 8px;
+    transition: border-color .2s, box-shadow .2s
+}
+
+.dropzone.is-dragover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08)
+}
+
+.drop-hint {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none
+}
+
+.drop-hint svg {
+    opacity: .6
+}
+
+.resp-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px
+}
